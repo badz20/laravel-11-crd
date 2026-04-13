@@ -12,7 +12,7 @@
         @endsession
 
         <div class="card">
-            <div class="card-header">Product List</div>
+            <div class="card-header">Product Listing</div>
             <div class="card-body">
                 <a href="{{ route('products.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Add New Product</a>
                 <table class="table table-striped table-bordered">
@@ -41,7 +41,7 @@
 
                                     <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Show</a>
 
-                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>   
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
 
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this product?');"><i class="bi bi-trash"></i> Delete</button>
                                 </form>
@@ -61,7 +61,7 @@
 
             </div>
         </div>
-    </div>    
+    </div>
 </div>
-    
+
 @endsection
