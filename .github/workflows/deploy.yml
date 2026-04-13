@@ -24,6 +24,12 @@ jobs:
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
             cd /var/www/laravel-11-crd
             git pull origin main
+
+            sudo sed -i 's/DB_HOST=.*/DB_HOST=${{ secrets.RDS_HOST }}/' .env
+            sudo sed -i 's/DB_DATABASE=.*/DB_DATABASE=${{ secrets.RDS_DATABASE }}/' .env
+            sudo sed -i 's/DB_USERNAME=.*/DB_USERNAME=${{ secrets.RDS_USERNAME }}/' .env
+            sudo sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=${{ secrets.RDS_PASSWORD }}/' .env
+
             composer install --no-dev --optimize-autoloader
             sudo chown -R www-data:www-data storage bootstrap/cache
             sudo chmod -R 775 storage bootstrap/cache
